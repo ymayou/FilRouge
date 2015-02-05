@@ -1,7 +1,3 @@
-<?php
-include_once("menu.php");
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -13,7 +9,9 @@ include_once("menu.php");
 </head>
 
 <body>
-
+<?php
+    include_once("menu.php");
+?>
 </body>
 
 </html>
