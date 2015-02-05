@@ -13,11 +13,8 @@
     color: white;
 }
 
-#content{
-    padding-top: 5%;
-}
-
 .content {
+    padding-top: 5%;
     margin: auto;
     max-width: 1000px;
 }
