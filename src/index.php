@@ -8,12 +8,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-<body>
-<?php
-    include_once("menu.php");
-?>
-<div id="content">
-    <p>Nec minus feminae quoque calamitatum participes fuere similium. nam ex hoc quoque sexu peremptae sunt originis altae conplures, adulteriorum flagitiis obnoxiae vel stuprorum. inter quas notiores fuere Claritas et Flaviana, quarum altera cum duceretur ad mortem, indumento, quo vestita erat, abrepto, ne velemen quidem secreto membrorum sufficiens retinere permissa est. ideoque carnifex nefas admisisse convictus inmane, vivus exustus est.</p>
+    <body>
+        <?php
+        include_once("menu.php");
+        ?>
+        <div class="content">
+            <fieldset>
+                <legend>Se connecter</legend>
+                <form action="#" method="POST">
+                    <p>
+                        <label for="nom">Login : </label>
+                        <input name="nom" id="nom" type="text" placeholder="Votre pseudo"/>
+                    </p>
+                    <p>
+                        <label for="password">Mot de passe : </label>
+                        <input name="password" id="password" type="password" placeholder="Mot de passe"/>
+                    </p>
+                    <p>
+                        <button type="submit">Se connecter</button>
+                    </p>
+                </form>
+            </fieldset>
+        </div>
+    </body>
 
     <p>Quam ob rem vita quidem talis fuit vel fortuna vel gloria, ut nihil posset accedere, moriendi autem sensum celeritas abstulit; quo de genere mortis difficile dictu est; quid homines suspicentur, videtis; hoc vere tamen licet dicere, P. Scipioni ex multis diebus, quos in vita celeberrimos laetissimosque viderit, illum diem clarissimum fuisse, cum senatu dimisso domum reductus ad vesperum est a patribus conscriptis, populo Romano, sociis et Latinis, pridie quam excessit e vita, ut ex tam alto dignitatis gradu ad superos videatur deos potius quam ad inferos pervenisse.</p>
 

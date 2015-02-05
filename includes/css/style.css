@@ -16,3 +16,8 @@
 #content{
     padding-top: 5%;
 }
+
+.content {
+    margin: auto;
+    max-width: 1000px;
+}
