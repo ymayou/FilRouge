@@ -4,7 +4,7 @@
             <a href="index.php">Accueil</a>
         </li>
         <li>
-            <a href="#">page 2</a>
+            <a href="profile.php">Profile</a>
         </li>
         <li>
             <a href="#">page 3</a>
