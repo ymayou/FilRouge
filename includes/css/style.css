@@ -1,16 +1,35 @@
+body{
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+}
+
 #menu{
     z-index: 9999;
     position: fixed;
-    width: 900px;
+    top: 0;
+    width: 100%;
+    background: #469400;
 }
+
 #menu ul li{
     list-style-type: none;
     display: inline;
-    background: green;
+    padding-right: 5%;
+}
+
+#menu ul{
+    width: 1000px;
+    margin: 1.3em auto;
+}
+
+li.active a {
+    font-size: 125%;
+    font-weight: bold;
 }
 
 #menu a, #menu a:visited{
     color: white;
+    text-decoration: none;
 }
 
 .content {

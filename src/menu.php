@@ -7,7 +7,7 @@
             <a href="profile.php">Profile</a>
         </li>
         <li>
-            <a href="#">page 3</a>
+            <a href="pathologie.php">Pathologie</a>
         </li>
         <li>
             <a href="#">page 4</a>
