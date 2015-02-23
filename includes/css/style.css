@@ -37,3 +37,16 @@ li.active a {
     margin: auto;
     max-width: 1000px;
 }
+
+label
+{
+	display: block;
+	width: 150px;
+	float: left;
+}
+
+.table-green td { 
+    border-radius: 5px;
+    background-color: #A5FEA8;
+    //color: #FFFFFF;
+}

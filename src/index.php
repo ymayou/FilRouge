@@ -1,10 +1,13 @@
 <?php
-    include_once("header.php");
+include_once("header.php");
 ?>
+
 <div class="content">
-    <fieldset>
-        <legend>Se connecter</legend>
-        <form action="#" method="POST">
+    <h1>Accueil</h1>
+    <form action="#" method="POST">
+        <fieldset>
+            <legend>Se connecter</legend>
+
             <p>
                 <label for="nom">Login : </label>
                 <input name="nom" id="nom" type="text" placeholder="Votre pseudo"/>
@@ -16,8 +19,9 @@
             <p>
                 <button type="submit">Se connecter</button>
             </p>
-        </form>
-    </fieldset>
+
+        </fieldset>
+    </form>
 
     <p>Quam ob rem vita quidem talis fuit vel fortuna vel gloria, ut nihil posset accedere, moriendi autem sensum celeritas abstulit; quo de genere mortis difficile dictu est; quid homines suspicentur, videtis; hoc vere tamen licet dicere, P. Scipioni ex multis diebus, quos in vita celeberrimos laetissimosque viderit, illum diem clarissimum fuisse, cum senatu dimisso domum reductus ad vesperum est a patribus conscriptis, populo Romano, sociis et Latinis, pridie quam excessit e vita, ut ex tam alto dignitatis gradu ad superos videatur deos potius quam ad inferos pervenisse.</p>
 
@@ -38,6 +42,6 @@
     <p>Nam sole orto magnitudine angusti gurgitis sed profundi a transitu arcebantur et dum piscatorios quaerunt lenunculos vel innare temere contextis cratibus parant, effusae legiones, quae hiemabant tunc apud Siden, isdem impetu occurrere veloci. et signis prope ripam locatis ad manus comminus conserendas denseta scutorum conpage semet scientissime praestruebant, ausos quoque aliquos fiducia nandi vel cavatis arborum truncis amnem permeare latenter facillime trucidarunt.</p>
 </div>
 <?php
-    include_once("footer.php");
+include_once("footer.php");
 ?>
 

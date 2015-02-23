@@ -1,10 +1,11 @@
 <?php
-    include_once("header.php");
+include_once("header.php");
 ?>
 <div class="content">
-    <fieldset>
-        <legend>Filtre</legend>
-        <form action="#" method="POST">
+    <h1>Liste des pathologies</h1>
+    <form action="#" method="POST"><fieldset>
+            <legend>Filtre</legend>
+
             <p>
                 <label for="choix_meridien">Méridien : </label>
                 <input list="meridien" type="text" id="choix_meridien">
@@ -34,9 +35,9 @@
             <p>
                 <button type="submit">Filtrer !</button>
             </p>
-        </form>
-    </fieldset>
-    <table>
+
+        </fieldset></form>
+    <table class="table-green" title="Categorie maladie">
         <thead>
             <tr>
                 <th>Catégorie</th>
@@ -64,6 +65,6 @@
     </table>
 </div>
 <?php
-    include_once("footer.php");
+include_once("footer.php");
 ?>
 
