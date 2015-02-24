@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+- <strong>{$ma_variable}</strong> <br />
+- {$une_variable} <br />
+- {$une_autre_variable}<br/><br/>
+{block name=titre}Le titre de ma page{/block}<br/>
+{block name=contenu}"Contenu" est un mot.{/block}<br/><br/>
+{include file="menu.html"}
+{$smarty.server.SERVER_NAME}
+
+</body>
+</html>
