@@ -1,13 +1,13 @@
 <div id="menu">
     <ul>
         <li>
-            <a href="index.php">Accueil</a>
+            <a href="?page=index">Accueil</a>
         </li>
         <li>
-            <a href="profile.php">Profile</a>
+            <a href="?page=profile">Profile</a>
         </li>
         <li>
-            <a href="pathologie.php">Pathologie</a>
+            <a href="?page=pathologie">Pathologie</a>
         </li>
     </ul>
 </div>
