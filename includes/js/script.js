@@ -5,6 +5,5 @@ $(document).ready(function(){
         console.log("href : " + this.href);
         if(url == (this.href)){
             $(this).closest("li").addClass("active");}
-
     });
 });
