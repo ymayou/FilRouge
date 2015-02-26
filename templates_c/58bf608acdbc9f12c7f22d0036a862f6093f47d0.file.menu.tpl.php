@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-02-26 11:33:39
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-02-26 14:02:10
          compiled from "C:\wamp\www\FilRouge\tpl\menu.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:3162854eef6833ec530-09889437%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '58bf608acdbc9f12c7f22d0036a862f6093f47d0' => 
     array (
       0 => 'C:\\wamp\\www\\FilRouge\\tpl\\menu.tpl',
-      1 => 1424943799,
+      1 => 1424955522,
       2 => 'file',
     ),
   ),
@@ -15,14 +15,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
-  'has_nocache_code' => false,
   'version' => 'Smarty-3.1.21-dev',
   'unifunc' => 'content_54eef6833f0b51_93113009',
+  'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_54eef6833f0b51_93113009')) {function content_54eef6833f0b51_93113009($_smarty_tpl) {?><div id="menu">
     <ul>
         <li>
-            <a href="../../index.php">Accueil</a>
+            <a href="index.php">Accueil</a>
         </li>
         <li>
             <a href="profile.html">Profile</a>
