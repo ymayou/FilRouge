@@ -5,7 +5,7 @@
 
     // Chargement Smarty et Defines
     require('defines.inc.php');
-    require(_PATH_ . 'web/tools/libs/Smarty.class.php');
+    require('/var/www/html/FilRouge/web/tools/libs/Smarty.class.php');
 
     // Chargement du coeur
     $files = scandir(_CORE_);
