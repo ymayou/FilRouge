@@ -5,7 +5,11 @@
         die();
 
     // Define de la racine du site
-    define('_PATH_', $_SERVER['DOCUMENT_ROOT']);
+    if ($_SERVER['DOCUMENT_ROOT'] == '/var/www/html')
+        $path = '/FilRouge';
+    else
+        $path='';
+    define('_PATH_', $_SERVER['DOCUMENT_ROOT'].$path);
 
     // Define du dossier Coeur
     define('_CORE_', _PATH_ . '/core/');
