@@ -1,5 +1,3 @@
-{include file="header.html"}
-<!--{include file="menu.html"}-->
 <div class="content">
     <h1>Accueil</h1>
     <form action="#" method="POST">
@@ -21,4 +19,3 @@
         </fieldset>
     </form>
 </div>
-<!--{include file="footer.html"}-->
