@@ -1,6 +1,5 @@
 <?php
     // Initialisation de la session
-    session_start();
     header("Cache-Control: no-cache");
 
     // Chargement Smarty et Defines
