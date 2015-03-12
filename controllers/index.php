@@ -2,52 +2,57 @@
     require_once 'core/DAO/UserDao.php';
     $userDao = new UserDao();
     $error = "";
-    if(isset($_POST["connexion"]))
+    $succes="";
+    if(!isset($_SESSION["nom"]))
     {
-        if (isset($_POST["nom"]) && isset($_POST["password"]))
+        if(isset($_POST["connexion"]))
         {
-            if ($_POST["nom"] != "" && $_POST["password"] != "")
+            if (isset($_POST["nom"]) && isset($_POST["password"]))
             {
-                if ($userDao->connectUser($_POST["nom"], $_POST["password"]) == true)
+                if ($_POST["nom"] != "" && $_POST["password"] != "")
                 {
-                    session_start();
-                    $_SESSION["nom"] = $_POST["nom"];
-                }
-            }
-            else
-                $error = "Veuillez saisir toutes les informations";
-
-        }
-        else
-        {
-            $error = 'Saisir un nom  de compte et un mot de passe valide';
-        }
-    }
-    else if (isset($_POST["inscription"]))
-    {
-        if (isset($_POST["nom"]) && isset($_POST["password"]))
-        {
-            if ($_POST["nom"] != "" && $_POST["password"] != "")
-            {
-                if ($userDao->insertNewUser($_POST["nom"], $_POST["password"]) == true)
-                {
-                    $error = "Compte créé";
+                    if ($userDao->connectUser($_POST["nom"], $_POST["password"]) == true)
+                    {
+                        $_SESSION["nom"] = $_POST["nom"];
+                        $succes = "Bonjour ".$_SESSION["nom"];
+                        $user = $_SESSION["nom"];
+                        $smarty->assign("user", $user);
+                    }
+                    else
+                    {
+                        $error="Erreur d'identification<br>Le mot de passe et le nom de correspondent pas";
+                    }
                 }
                 else
-                {
-                    $error = "Veuillez saisir toutes les informations";
-                }
+                    $error = "Veuillez remplir tous le schamps";
+
             }
-            else
-                $error = "Veuillez saisir toutes les informations";
         }
-        else
+        else if (isset($_POST["inscription"]))
         {
-            $error = 'Saisir un nom  de compte et un mot de passe';
+            if (isset($_POST["nom"]) && isset($_POST["password"]))
+            {
+                if ($_POST["nom"] != "" && $_POST["password"] != "")
+                {
+                    if ($userDao->insertNewUser($_POST["nom"], $_POST["password"]) == true)
+                    {
+                        $succes = "Compte créé avec succès";
+                    }
+                    else
+                    {
+                        $error = "Veuillez remplir tous les champs correctement";
+                    }
+                }
+                else
+                    $error = "Veuillez remplir tous les champs";
+            }
         }
     }
     else
     {
-        $error = "normal";
+        $user = $_SESSION["nom"];
+        $smarty->assign("user", $user);
+
     }
     $smarty->assign('error', $error);
+    $smarty->assign('succes', $succes);

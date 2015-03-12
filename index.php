@@ -19,11 +19,13 @@
             $smarty->display(_TPL_.'pages/'.$_GET['page'].'.tpl');
         else
             $smarty->display(_TPL_.'pages/error.tpl');
-    else
-        $smarty->display(_TPL_ . 'pages/index.tpl');
+    else {
+        if (!isset($_SESSION["nom"]))
+            $smarty->display(_TPL_ . 'pages/index.tpl');
+        else
+            $smarty->display(_TPL_ . 'pages/pathologie.tpl');
+    }
 
     $smarty->display(_TPL_ . 'footer.tpl');
 
-    /*require("./libs/Smarty.class.php");
-    $smarty = new Smarty();
-    $smarty->display("lib/view/index.html");*/
+    print_r($_SESSION);

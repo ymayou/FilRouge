@@ -1,7 +1,7 @@
 <?php
     // Initialisation de la session
     header("Cache-Control: no-cache");
-
+    session_start();
     // Chargement Smarty et Defines
     require('defines.inc.php');
     require('./web/tools/libs/Smarty.class.php');
