@@ -1,12 +1,14 @@
 <?php
-    require_once 'core/DAO/User Dao.php';
+    require_once 'core/DAO/UserDao.php';
+    $userDao = new UserDao();
+    $error = "";
     if(isset($_POST["connexion"]))
     {
         if (isset($_POST["nom"]) && isset($_POST["password"]))
         {
             if ($_POST["nom"] != "" && $_POST["password"] != "")
             {
-                if (connectUser($_POST["nom"], $_POST["password"]) == true)
+                if ($userDao->connectUser($_POST["nom"], $_POST["password"]) == true)
                 {
                     session_start();
                     $_SESSION["nom"] = $_POST["nom"];
@@ -27,9 +29,13 @@
         {
             if ($_POST["nom"] != "" && $_POST["password"] != "")
             {
-                if (insertNewUser($_POST["nom"], $_POST["password"]) == true)
+                if ($userDao->insertNewUser($_POST["nom"], $_POST["password"]) == true)
                 {
                     $error = "Compte créé";
+                }
+                else
+                {
+                    $error = "Veuillez saisir toutes les informations";
                 }
             }
             else
