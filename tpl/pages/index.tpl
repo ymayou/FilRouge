@@ -3,7 +3,9 @@
     <form action="#" method="POST" action="">
         <fieldset>
             <legend>Se connecter</legend>
-
+            <p>
+                {$error}
+            </p>
             <p>
                 <label for="nom">Login : </label>
                 <input name="nom" id="nom" type="text" placeholder="Votre pseudo"/>
