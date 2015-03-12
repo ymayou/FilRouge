@@ -37,27 +37,20 @@
     <table class="table-green" title="Categorie maladie">
         <thead>
         <tr>
-            <th>Catégorie</th>
-            <th>Caractéristique</th>
-            <th>Exemples</th>
+            <th>Méridien</th>
+            <th>Type</th>
+            <th>Description</th>
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>A</td>
-            <td>A</td>
-            <td>A</td>
-        </tr>
-        <tr>
-            <td>B</td>
-            <td>B</td>
-            <td>B</td>
-        </tr>
-        <tr>
-            <td>C</td>
-            <td>C</td>
-            <td>C</td>
-        </tr>
+            {foreach from=$listePatho item=pathologie}
+                <tr>
+                    <td>{$pathologie['mer']}</td>
+                    <td>{$pathologie['type']}</td>
+                    <td>{$pathologie['desc']}</td>
+                </tr>
+               
+            {/foreach}
         </tbody>
     </table>
 </div>
