@@ -32,7 +32,7 @@ class UserDao extends GenericDao{
      * @return boolean
      */
     public function insertNewUser($login,$password){
-        $sql = "INSERT INTO ". $this->tableName ." VALUES ('". $login ."', SHA1('". $password ."'));";
+        $sql = "INSERT INTO ". $this->tableName ." VALUES (null, '". $login ."', SHA1('". $password ."'));";
         $requete = $this->connexion->prepare($sql);
          if($requete->execute()){
              return true;
