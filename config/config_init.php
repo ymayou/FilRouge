@@ -15,15 +15,5 @@
             require_once(_CORE_.$filename);
     }
 
-    // Connexion Database
-    /*try {
-        $bdd = new PDO("mysql:host=localhost;dbname=pixyjob", "root", "");
-        $bdd->query("SET NAMES UTF8");
-    } catch (Exception $e) {
-        echo "Problème de connexion à la base de donnée PixyJob...";
-        die();
-    }*/
-
     // Initialisation Smarty
     $smarty = new Smarty();
-?>

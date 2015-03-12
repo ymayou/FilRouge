@@ -25,9 +25,9 @@
             <p>
                 <label for="caracteristique">Caractéristique : </label>
                 <select id="caracteristique">
-                    <option>chaud</option>
-                    <option>froid</option>
-                    <option>Mayou le magnifique</option>
+                    {foreach from=$listeCarac item=carac}
+                        <option>{$carac['element']}</option>
+                    {/foreach}
                 </select>
             <p>
                 <button type="submit">Filtrer !</button>

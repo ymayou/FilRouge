@@ -1,7 +1,27 @@
 <?php
-require_once 'core/DAO/PathologieDao.php';
-    $cnx = null;
-    $test = new PathologieDao($cnx);
     if(isset($_POST["connexion"]))
-        header("location: ?page=pathologie");
-?>
+    {
+        if (isset($_POST["nom"]) && isset($_POST["password"]))
+        {
+
+        }
+        else
+        {
+            $error = "Saisir un nom  de compte et un mot de passe valide";
+        }
+    }
+    else if (isset($_POST["inscription"]))
+    {
+        if (isset($_POST["nom"]) && isset($_POST["password"]))
+        {
+
+        }
+        else
+        {
+            $error = "Saisir un nom  de compte et un mot de passe";
+        }
+    }
+    else
+    {
+        $smarty->assign("error", $error);
+    }
