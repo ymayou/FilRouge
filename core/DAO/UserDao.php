@@ -11,6 +11,7 @@
  *
  * @author florian
  */
+require_once 'core/DAO/GenericDao.php';
 class UserDao extends GenericDao{
     
     protected $tableName;
@@ -56,4 +57,6 @@ class UserDao extends GenericDao{
          } 
          return false;
     }
+    
+    
 }
