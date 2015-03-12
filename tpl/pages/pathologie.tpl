@@ -7,11 +7,9 @@
                 <label for="choix_meridien">Méridien : </label>
                 <input list="meridien" type="text" id="choix_meridien">
                 <datalist id="meridien">
-                    <option value="Je">
-                    <option value="suis">
-                    <option value="Mayou">
-                    <option value="Le">
-                    <option value="Magnifique">
+                    {foreach from=$listeNomMeridien item=nomM}
+                        <option>{$nomM['nom']}</option>
+                    {/foreach}
                 </datalist>
             </p>
             <p>

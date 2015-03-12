@@ -6,6 +6,9 @@
     $listeCarac = $meridienDao->findAllCaracteristique('', '', '');
     $smarty->assign('listeCarac', $listeCarac);
     
+    $listeNomMeridien = $meridienDao->getAllName();
+    $smarty->assign('listeNomMeridien', $listeNomMeridien);
+    
     $pathologieDao = new PathologieDao($cnx);
     $listePatho = $pathologieDao->listePatho();
     //print_r($pathologieDao);

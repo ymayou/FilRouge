@@ -29,4 +29,18 @@ class MeridienDao extends GenericDao {
             return null;
         }
     }
+    
+    /**
+     * Retourne tous les noms des méridiens
+     * @return type
+     */
+    public function getAllName(){
+        $sql = "SELECT nom from ". $this->tableName;
+        $requete = $this->connexion->prepare($sql);
+        if($requete->execute()){
+            return $requete->fetchAll();
+        } else {
+            return null;
+        }
+    }
 }
