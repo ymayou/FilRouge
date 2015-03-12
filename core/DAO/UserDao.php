@@ -14,13 +14,14 @@
 require_once 'core/DAO/GenericDao.php';
 class UserDao extends GenericDao{
     
-    protected $tableName;
+    public $tableName;
     
     /**
      * Constructeur
      */
     public function __construct() {
         $this->tableName = "user";
+        $cnx = "";
         parent::__construct($cnx, $this->tableName, "id");
     }
     
