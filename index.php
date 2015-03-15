@@ -20,10 +20,7 @@
         else
             $smarty->display(_TPL_.'pages/error.tpl');
     else {
-        if (!isset($_SESSION["nom"]))
             $smarty->display(_TPL_ . 'pages/index.tpl');
-        else
-            $smarty->display(_TPL_ . 'pages/pathologie.tpl');
     }
 
     $smarty->display(_TPL_ . 'footer.tpl');

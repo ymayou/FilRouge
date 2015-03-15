@@ -7,6 +7,8 @@
     <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="./web/js/jquery.validate.min.js"></script>
     <script src="./web/js/script.js"></script>
+    <script src="./web/js/controle.js"></script>
 </head>
 <body>

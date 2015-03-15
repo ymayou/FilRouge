@@ -1,29 +1,35 @@
 <div class="content">
     <h1>Gestion du profile</h1>
     {if isset($user)}
-        <div class="profileManagement">
-            <form id="formProfile" method="post" action="#" >
+        <p class="errorLogin">{$error}</p>
+        <p class="succesLogin">{$succes}</p>
+        <form id="form-profile" method="POST" action="" >
+            <p>
+                <label for="nom">Nom : </label>
+                <input id="nom" name ="nom" type="text" placeholder="" value="{$user}">
+            </p>
+            <p>
+                <label for="mdp">Mot de passe : </label>
+                <input id="mdp" name="mdp" type="password" placeholder="Ancien mot de passe">
+            </p>
+            <p>
+                <label for="mdpNew">Nouveau mdp : </label>
+                <input id="mdpNew" name="mdpNew" type="password" placeholder="Nouveau mot de passe">
+            </p>
+            <p>
+                <label for="mdpCheck">Ressaisir mdp : </label>
+                <input id="mdpCheck" name="mdpCheck" type="password" placeholder="Contrôle du nouveau mot de passe">
+            </p>
+            <input name="saveProfile"  type="submit" value="Sauvegarder">
+            <div class="warning">
+                <h2>Suppression du profile</h2>
                 <p>
-                    <label for="nom">Nom : </label>
-                    <input id="nom" type="text" placeholder="Nom">
+                    Attention, en supprimant votre profile vous perdez l'accès à certaines fonctionnalitées du site.<br>
                 </p>
-                <p>
-                    <label for="mdp">Mot de passe : </label>
-                    <input id="mdp" type="password" placeholder="">
-                </p>
-                <p>
-                    <label for="mdpNew">Nouveau mdp : </label>
-                    <input id="mdpNew" type="password" placeholder="">
-                </p>
-                <p>
-                    <label for="mdpCheck">Ressaisir mdp : </label>
-                    <input id="mdpCheck" type="password" placeholder="">
-                </p>
-                <input id="deleteProfile" class="buttonProfile" type="submit" value="Supprimer mon profil">
-                <input id="saveProfile" class="buttonProfile" type="submit" value="Savegarder">
-            </form>
-        </div>
+                <input name="deleteProfile" type="submit" value="Supprimer mon profil">
+            </div>
+        </form>
     {else}
-        <p>Il faut vous connecter pourgérer votre compte</p>
+        <p>Il faut vous connecter pour gérer votre compte</p>
     {/if}
 </div>

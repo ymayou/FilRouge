@@ -11,20 +11,31 @@
             {
                 if ($_POST["nom"] != "" && $_POST["password"] != "")
                 {
-                    if ($userDao->connectUser($_POST["nom"], $_POST["password"]) == true)
+                    if (strlen($_POST["nom"]) < 3)
                     {
-                        $_SESSION["nom"] = $_POST["nom"];
-                        $succes = "Bonjour ".$_SESSION["nom"];
-                        $user = $_SESSION["nom"];
-                        $smarty->assign("user", $user);
+                        $error = "Le nom doit contenir au moins 3 caractères";
+                    }
+                    elseif (strlen($_POST["password"]) < 5)
+                    {
+                        $error = "Le mot de passe doit contenir au moins 5 caractères";
                     }
                     else
                     {
-                        $error="Erreur d'identification<br>Le mot de passe et le nom de correspondent pas";
+                        if ($userDao->connectUser($_POST["nom"], $_POST["password"]) == true)
+                        {
+                            $_SESSION["nom"] = $_POST["nom"];
+                            $succes = "Bonjour ".$_SESSION["nom"];
+                            $user = $_SESSION["nom"];
+                            $smarty->assign("user", $user);
+                        }
+                        else
+                        {
+                            $error="Erreur d'identification<br>Le mot de passe et le nom de correspondent pas";
+                        }
                     }
                 }
                 else
-                    $error = "Veuillez remplir tous le schamps";
+                    $error = "Veuillez remplir tous les champs";
 
             }
         }
@@ -32,7 +43,18 @@
         {
             if (isset($_POST["nom"]) && isset($_POST["password"]))
             {
-                if ($_POST["nom"] != "" && $_POST["password"] != "")
+                echo $_POST["nom"];
+                echo $_POST["password"];
+
+                if (strlen($_POST["nom"]) < 3)
+                {
+                    $error = "Le nom doit contenir au moins 3 caractères";
+                }
+                elseif (strlen($_POST["password"]) < 5)
+                {
+                    $error = "Le mot de passe doit contenir au moins 5 caractères";
+                }
+                else
                 {
                     if ($userDao->insertNewUser($_POST["nom"], $_POST["password"]) == true)
                     {
@@ -40,11 +62,9 @@
                     }
                     else
                     {
-                        $error = "Veuillez remplir tous les champs correctement";
+                        $error = "Ce nom de compte est déjà utilisé";
                     }
                 }
-                else
-                    $error = "Veuillez remplir tous les champs";
             }
         }
     }

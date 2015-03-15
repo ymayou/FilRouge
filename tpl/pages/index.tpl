@@ -1,22 +1,22 @@
 <div class="content">
     <h1>Accueil</h1>
     {if !isset($user)}
-        <form action="#" method="POST">
+        <form action="" method="POST" id="form-index">
             <fieldset>
                 <legend>Se connecter</legend>
-                <p class="error">{$error}</p>
-                <p class="succes">{$succes}</p>
+                <p class="errorLogin">{$error}</p>
+                <p class="succesLogin">{$succes}</p>
                 <p>
-                    <label for="nom">Login : </label>
+                    <label for="nom">Nom</label>
                     <input name="nom" id="nom" type="text" placeholder="Votre pseudo"/>
                 </p>
                 <p>
-                    <label for="password">Mot de passe : </label>
+                    <label for="password">Mot de passe</label>
                     <input name="password" id="password" type="password" placeholder="Mot de passe"/>
                 </p>
                 <p>
-                    <button type="submit" name="connexion">Se connecter</button>
-                    <button type="submit" name="inscription">S'inscrire</button>
+                    <input type="submit" name="connexion" value ="Se connecter"/>
+                    <input type="submit" name="inscription" value="S'inscrire"/>
                 </p>
 
             </fieldset>

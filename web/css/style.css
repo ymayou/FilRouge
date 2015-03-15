@@ -48,5 +48,48 @@ label
 .table-green td {
     border-radius: 5px;
     background-color: #A5FEA8;
-//color: #FFFFFF;
+}
+
+input.error{
+    border: 2px solid red;
+}
+
+.error {
+    color:red;
+    width: 33%;
+}
+
+input.valid {
+    border: 2px solid green;
+}
+
+.succesLogin, .errorLogin, .warning {
+    text-align: center;
+    color: white;
+}
+
+.errorLogin, .warning{
+    background-color: RGBa(255,0,0,0.7);
+}
+
+.succesLogin {
+    background-color: RGBa(0,255,0,0.7);
+}
+
+.warning {
+    margin-top: 5%;
+    padding: 5px;
+    border-radius: 20px;
+}
+
+.warning input {
+    background-color: red;
+    border-radius: 4px;
+    border: 1px solid red;
+    color: white;
+    padding: 5px;
+}
+
+.warning h2 {
+    font-weight: 0.5em;
 }
