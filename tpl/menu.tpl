@@ -1,13 +1,13 @@
-<div id="menu">
+<nav>
     <ul>
         <li>
-            <a href="?page=index">Accueil</a>
+            <a href="index">Accueil</a>
         </li>
         <li>
-            <a href="?page=profile">Profile</a>
+            <a href="profile">Profile</a>
         </li>
         <li>
-            <a href="?page=pathologie">Pathologie</a>
+            <a href="pathologie">Pathologie</a>
         </li>
     </ul>
-</div>
+</nav>

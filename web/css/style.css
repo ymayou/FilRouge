@@ -3,7 +3,7 @@ body{
     font-family: 'Lato', sans-serif;
 }
 
-#menu{
+nav{
     z-index: 9999;
     position: fixed;
     top: 0;
@@ -11,13 +11,13 @@ body{
     background: #469400;
 }
 
-#menu ul li{
+nav ul li{
     list-style-type: none;
     display: inline;
     padding-right: 5%;
 }
 
-#menu ul{
+nav ul{
     width: 1000px;
     margin: 1.3em auto;
 }
@@ -27,7 +27,7 @@ li.active a {
     font-weight: bold;
 }
 
-#menu a, #menu a:visited{
+nav a, nav a:visited{
     color: white;
     text-decoration: none;
 }
