@@ -14,9 +14,29 @@ class PathologieDao extends GenericDao {
         parent::__construct($cnx, "patho", "idP");
     }
     
-    public function listePatho() {
-        $sql = "SELECT * FROM ".$this->tableName;
-         $requete = $this->connexion->prepare($sql);
+    public function listePatho($nomMeridien, $type) {
+        $sql = "SELECT * FROM ".$this->tableName ." WHERE 1=1 ";
+        if($nomMeridien != '') {
+            $sql .= " AND `mer` IN (SELECT code from meridien WHERE nom='". $nomMeridien ."') ";
+        }
+        if($type != '') {
+            $sql .= " AND type='". $type ."'";
+        }
+        //echo '<br><br><br><br><br><br><br><br>'. $sql;
+        $requete = $this->connexion->prepare($sql);
+         if($requete->execute()){
+             while($donnees = $requete->fetchAll()){
+                 //print_r($donnees);
+                 return $donnees;
+             }
+         } else {
+             return null;
+         }
+    }
+    
+    public function listeTypePatho() {
+        $sql = "SELECT distinct(type) FROM ".$this->tableName ." WHERE 1 ";
+        $requete = $this->connexion->prepare($sql);
          if($requete->execute()){
              while($donnees = $requete->fetchAll()){
                  //print_r($donnees);

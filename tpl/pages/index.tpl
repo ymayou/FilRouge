@@ -1,3 +1,6 @@
+
+<a href="?page=rss">
+<img src="http://www.wpclipart.com/computer/software/.cache/RSS_icon_large.png"></a>
 <div class="content">
     <h1>Accueil</h1>
     {if !isset($user)}
