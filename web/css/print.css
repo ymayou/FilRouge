@@ -1,0 +1,7 @@
+nav, img, form{
+    display: none;
+}
+h1, .table-green td {
+    background: none;
+    color: black;
+}

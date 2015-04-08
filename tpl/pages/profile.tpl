@@ -21,6 +21,8 @@
                 <input id="mdpCheck" name="mdpCheck" type="password" placeholder="Contrôle du nouveau mot de passe">
             </p>
             <input name="saveProfile"  type="submit" value="Sauvegarder">
+        </form>
+        <form id="form-profile-delete" method="POST" action="">
             <div class="warning">
                 <h2>Suppression du profile</h2>
                 <p>

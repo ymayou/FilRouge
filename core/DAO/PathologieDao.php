@@ -22,11 +22,9 @@ class PathologieDao extends GenericDao {
         if($type != '') {
             $sql .= " AND type='". $type ."'";
         }
-        //echo '<br><br><br><br><br><br><br><br>'. $sql;
         $requete = $this->connexion->prepare($sql);
          if($requete->execute()){
              while($donnees = $requete->fetchAll()){
-                 //print_r($donnees);
                  return $donnees;
              }
          } else {
@@ -34,16 +32,33 @@ class PathologieDao extends GenericDao {
          }
     }
     
-    public function listeTypePatho() {
-        $sql = "SELECT distinct(type) FROM ".$this->tableName ." WHERE 1 ";
+    public function listeTypePatho()
+    {
+        $sql = "SELECT distinct(type) FROM " . $this->tableName . " WHERE 1 ";
         $requete = $this->connexion->prepare($sql);
-         if($requete->execute()){
-             while($donnees = $requete->fetchAll()){
-                 //print_r($donnees);
-                 return $donnees;
-             }
-         } else {
-             return null;
-         }
+        if ($requete->execute()) {
+            while ($donnees = $requete->fetchAll()) {
+                return $donnees;
+            }
+        } else {
+            return null;
+        }
+    }
+
+    public function recherche($mot)
+    {
+        $sql = "SELECT * FROM ".$this->tableName." p "
+                ."join symptPatho sp on sp.idP = p.idP "
+                ."join keySympt ks on ks.idS = sp.idS "
+                ."join keywords k on k.idK = ks.idK "
+                ."WHERE k.name like '%".$mot."%'";
+        $requete = $this->connexion->prepare($sql);
+        if($requete->execute()){
+            while($donnees = $requete->fetchAll()){
+                return $donnees;
+            }
+        } else {
+            return null;
+        }
     }
 }

@@ -11,7 +11,7 @@
         if ($userDao->deleteUser($_SESSION["nom"]))
         {
             session_unset();
-            header('Location: ?page=index');
+            header('Location: index');
         }
         $error = "Erreur dans la suppression du profile";
     }
@@ -36,7 +36,7 @@
         }
         else
         {
-            $error = "Veuillez remplri tous les champs";
+            $error = "Veuillez remplir tous les champs";
         }
     }
 

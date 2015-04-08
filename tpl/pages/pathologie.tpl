@@ -1,6 +1,6 @@
 <div class="content">
     <h1>Liste des pathologies</h1>
-    <form action="?page=pathologie" method="POST"><fieldset>
+    <form action="pathologie" method="POST"><fieldset>
             <legend>Filtre</legend>
             {if isset($user)}
                 <label for="recherche">Rechercher : </label>

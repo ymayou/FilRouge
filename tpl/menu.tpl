@@ -9,5 +9,8 @@
         <li>
             <a href="pathologie">Pathologie</a>
         </li>
+        <li>
+            <a href="recherche">Recherche</a>
+        </li>
     </ul>
 </nav>

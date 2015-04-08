@@ -1,7 +1,7 @@
-
-<a href="?page=rss">
-<img src="http://www.wpclipart.com/computer/software/.cache/RSS_icon_large.png"></a>
 <div class="content">
+    <a href="rss">
+        <img src="http://www.wpclipart.com/computer/software/.cache/RSS_icon_large.png">
+    </a>
     <h1>Accueil</h1>
     {if !isset($user)}
         <form action="" method="POST" id="form-index">
