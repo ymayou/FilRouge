@@ -2,7 +2,10 @@
     <h1>Liste des pathologies</h1>
     <form action="?page=pathologie" method="POST"><fieldset>
             <legend>Filtre</legend>
-
+            {if isset($user)}
+                <label for="recherche">Rechercher : </label>
+                <input type="text" id="recherche" name="recherche">
+            {/if}
             <p>
                 <label for="choix_meridien">Méridien : </label>
                 <input list="meridien" type="text" id="choix_meridien" name="nomMeridien" value="{$nomCourant}">

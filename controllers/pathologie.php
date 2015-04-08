@@ -2,11 +2,15 @@
     require_once 'core/DAO/MeridienDao.php';
     require_once 'core/DAO/PathologieDao.php';
     
-    $element   = (isset($_POST['caracteristique'])) ? $_POST['caracteristique'] : '';
-    $typePatho = (isset($_POST['categorie'])) ? $_POST['categorie'] : '';
+    $element     = (isset($_POST['caracteristique'])) ? $_POST['caracteristique'] : '';
+    $typePatho   = (isset($_POST['categorie'])) ? $_POST['categorie'] : '';
     $nomMeridien = (isset($_POST['nomMeridien'])) ? $_POST['nomMeridien'] : '';
+    $recherche   = (isset($_POST['recherche'])) ? $_POST['recherche'] : '';
     $type = $typePatho.$element;
     //echo 'element : '. $element. '       type : '. $typePatho;
+    
+    if (isset($_SESSION["nom"]))
+        $smarty->assign("user", $_SESSION["nom"]);
     
      $smarty->assign('caracCourant', $element);
     $smarty->assign('typeCourant', $typePatho);
@@ -29,6 +33,6 @@
     $smarty->assign('listeTypePatho', $listeTypePatho);
     
    
-    $listePatho = $pathologieDao->listePatho($nomMeridien, $type);
+    $listePatho = $pathologieDao->listePatho($nomMeridien, $type, $recherche);
     //print_r($pathologieDao);
     $smarty->assign('listePatho', $listePatho);
