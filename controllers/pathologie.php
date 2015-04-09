@@ -33,6 +33,13 @@
     $smarty->assign('listeTypePatho', $listeTypePatho);
     
    
-    $listePatho = $pathologieDao->listePatho($nomMeridien, $type, $recherche);
+    
+    
+    if(isset($recherche) && $recherche != '') {
+        $listePatho = $pathologieDao->recherche($recherche);
+    } else {
+        $listePatho = $pathologieDao->listePatho($nomMeridien, $type);
+    }
+    
     //print_r($pathologieDao);
     $smarty->assign('listePatho', $listePatho);
