@@ -31,9 +31,8 @@ class PathologieDao extends GenericDao {
              return null;
          }
     }
-    
-    public function listeTypePatho()
-    {
+
+    public function listeTypePatho() {
         $sql = "SELECT distinct(type) FROM " . $this->tableName . " WHERE 1 ";
         $requete = $this->connexion->prepare($sql);
         if ($requete->execute()) {
