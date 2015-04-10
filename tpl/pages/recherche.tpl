@@ -1,6 +1,6 @@
 <div class="content">
     <h1>Recherche de pathologies par mot-clé</h1>
-    <form id="form-recherche" method="POST" action="">
+    <form id="form-recherche" method="POST" action="#">
         <p>
             <label for="recherche" class="singleLabel">Mot-clé : </label>
             <input type="text" id="recherche" name ="recherche" placeholder="">
