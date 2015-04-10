@@ -9,11 +9,13 @@
     </form>
     {if isset($resultat)}
         <div class="listePathos">
+            <ul class="manyLinks">
             {foreach from=$resultat item=pathologie}
-                <p>
-                    <a href="/patho/{$pathologie['idP']}" class="linkPatho">{$pathologie['desc']}</a>
-                </p>
+                <li>
+                    <a href="/patho/{$pathologie['idP']}">{$pathologie['desc']}</a>
+                </li>
             {/foreach}
+            </ul>
         </div>
     {/if}
 </div>
