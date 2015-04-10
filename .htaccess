@@ -1,3 +1,4 @@
 Options +FollowSymlinks
 RewriteEngine On
 RewriteRule ^([a-zA-Z]+)$ ?page=$1 [L]
+RewriteRule ^patho/([0-9]+)$ ?page=infosPatho&idPatho=$1 [L]

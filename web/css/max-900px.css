@@ -130,4 +130,11 @@
         color: white;
         left: 0;
     }
+
+    a.linkPatho, a.linkPatho:visited{
+        color: black;
+        display: block;
+        font-size: 1.1em;
+        text-decoration: none;
+    }
 }
