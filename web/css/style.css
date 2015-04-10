@@ -105,7 +105,10 @@ input.valid {
 
 a.linkPatho, a.linkPatho:visited{
     color: black;
-    display: block;
     font-size: 1.1em;
     text-decoration: none;
+}
+
+a.linkPatho:hover{
+    text-decoration: underline;
 }

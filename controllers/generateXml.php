@@ -1,6 +1,9 @@
 <?php
     require_once 'core/DAO/PathologieDao.php';
-
+    if (isset($_SESSION["nom"])){
+        $user = $_SESSION["nom"];
+        $smarty->assign("user", $user);
+    }
     $dom = new DOMDocument('1.0', 'UTF-8');
     $doctype = '<!DOCTYPE listPathos SYSTEM "listPathos.dtd">';
     $racine = $dom->createElement("listPathos");
@@ -9,7 +12,7 @@
     $cnx = null;
     $pathologieDao = new PathologieDao($cnx);
     $pathos = $pathologieDao->getPathos();
-    print_r($pathos);
+
     foreach($pathos as $patho)
     {
         $fils = $dom->createElement("pathologie");
@@ -24,3 +27,4 @@
         $fils->appendChild($dom->createElement('descSympt',$patho["desc2"]));
     }
     $doctype.$dom->save("web/ressources/pathos.xml");
+

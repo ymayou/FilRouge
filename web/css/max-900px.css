@@ -137,4 +137,8 @@
         font-size: 1.1em;
         text-decoration: none;
     }
+
+    a.linkPatho:hover{
+        text-decoration: underline;
+    }
 }

@@ -46,7 +46,9 @@
     </form>
     <div class="listePathos">
         {foreach from=$listePatho item=pathologie}
-            <a href="/patho/{$pathologie['idP']}" class="linkPatho">{$pathologie['desc']}</a>
+            <p>
+                <a href="/patho/{$pathologie['idP']}" class="linkPatho">{$pathologie['desc']}</a>
+            </p>
         {/foreach}
     </div>
 </div>

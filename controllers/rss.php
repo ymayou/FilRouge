@@ -1,9 +1,13 @@
 <?php
+if (isset($_SESSION["nom"])){
+    $user = $_SESSION["nom"];
+    $smarty->assign("user", $user);
+}
 $xml = new DOMDocument;
-$xml->load('ressources/rss.xml');
+$xml->load('./web/ressources/rss.xml');
 
 $xsl = new DOMDocument;
-$xsl->load('ressources/full.xsl');
+$xsl->load('./web/ressources/full.xsl');
 
 $proc = new XSLTProcessor;
 $proc->importStylesheet($xsl);

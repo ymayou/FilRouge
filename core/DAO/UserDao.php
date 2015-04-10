@@ -49,8 +49,10 @@ class UserDao extends GenericDao{
      * @return boolean
      */
     public function connectUser($login,$password){
-        $sql = "SELECT * FROM ". $this->tableName ." WHERE login='". $login ."' AND password= '".sha1($password )."' ;";
+        $sql = "SELECT * FROM ". $this->tableName ." WHERE login=:login AND password= :password ;";
         $requete = $this->connexion->prepare($sql);
+        $requete->bindValue(':login', $login);
+        $requete->bindValue(':password', sha1($password));
         if($requete->execute()){
             if($requete->rowcount() == 1){
                 return true;
@@ -66,8 +68,9 @@ class UserDao extends GenericDao{
      * @return boolean
      */
     public function deleteUser($login){
-        $sql = "DELETE FROM ". $this->tableName ." WHERE login='". $login ."';";
+        $sql = "DELETE FROM ". $this->tableName ." WHERE login=:login;";
         $requete = $this->connexion->prepare($sql);
+        $requete->bindValue(':login', $login);
         if($requete->execute()){
             if($requete->rowcount() == 1){
                 return true;
@@ -84,8 +87,9 @@ class UserDao extends GenericDao{
      */
     public function controleMdp($login, $mdp)
     {
-        $sql = "SELECT password FROM ". $this->tableName ." WHERE login= '".$login."' ;";
+        $sql = "SELECT password FROM ". $this->tableName ." WHERE login= :login ;";
         $requete = $this->connexion->prepare($sql);
+        $requete->bindValue(':login', $login);
         if($requete->execute()){
             if($donnee = $requete->fetch()){
                 if (sha1($mdp) == $donnee['password'])
@@ -107,9 +111,10 @@ class UserDao extends GenericDao{
      */
     public function updateUser($login, $mdp)
     {
-        $sql = "UPDATE ".$this->tableName." set password = '".sha1($mdp)."' WHERE login = '".$login."';";
-        echo $sql;
+        $sql = "UPDATE ".$this->tableName." set password = :mdp WHERE login = :login;";
         $requete = $this->connexion->prepare($sql);
+        $requete->bindValue(':mdp', sha1($mdp));
+        $requete->bindValue(':login', $login);
         if ($requete->execute() > 0)
             return true;
         else

@@ -15,12 +15,19 @@ class MeridienDao extends GenericDao {
     public function findAllCaracteristique($sortingExpr,$from,$to){
         $sql = "SELECT distinct(element) FROM ".$this->tableName;
         if($sortingExpr != null){
-            $sql.=" ORDER BY ".$sortingExpr;
+            $sql.=" ORDER BY :sorting";
         }
         if($from !=null && $to != null){
-            $sql .=" LIMIT ".$from.",".$to;
+            $sql .=" LIMIT :from,:to";
         }
         $requete = $this->connexion->prepare($sql);
+        if($sortingExpr != null){
+            $requete->bindValue(':sorting', $sortingExpr);
+        }
+        if($from !=null && $to != null){
+            $requete->bindValue(':from', $from);
+            $requete->bindValue(':to', $to);
+        }
         if($requete->execute()){
             while($donnees = $requete->fetchAll()){
                 return $donnees;

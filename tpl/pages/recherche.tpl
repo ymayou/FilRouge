@@ -10,7 +10,9 @@
     {if isset($resultat)}
         <div class="listePathos">
             {foreach from=$resultat item=pathologie}
-                <a href="/patho/{$pathologie['idP']}" class="linkPatho">{$pathologie['desc']}</a>
+                <p>
+                    <a href="/patho/{$pathologie['idP']}" class="linkPatho">{$pathologie['desc']}</a>
+                </p>
             {/foreach}
         </div>
     {/if}

@@ -15,14 +15,18 @@ class PathologieDao extends GenericDao {
     }
     
     public function listePatho($nomMeridien, $type) {
-        $sql = "SELECT p.idP, p.desc FROM ".$this->tableName ." p";
+        $sql = "SELECT * FROM " . $this->tableName . " WHERE 1=1 ";
         if($nomMeridien != '') {
-            $sql .= " AND `mer` IN (SELECT code from meridien WHERE nom='". $nomMeridien ."') ";
+            $sql .= " AND `mer` IN (SELECT code from meridien WHERE nom = :meridien) ";
         }
         if($type != '') {
-            $sql .= " AND type='". $type ."'";
+            $sql .= " AND type = :type";
         }
         $requete = $this->connexion->prepare($sql);
+        if($nomMeridien != '')
+            $requete->bindValue(':meridien', $nomMeridien);
+        if($type != '')
+            $requete->bindValue(':type', $type);
          if($requete->execute()){
              while($donnees = $requete->fetchAll()){
                  return $donnees;

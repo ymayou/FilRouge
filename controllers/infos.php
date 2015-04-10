@@ -1,7 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Tfk
- * Date: 08/04/2015
- * Time: 22:25
- */ 
+
+    if (isset($_SESSION["nom"])){
+        $user = $_SESSION["nom"];
+        $smarty->assign("user", $user);
+    }

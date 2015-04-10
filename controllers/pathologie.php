@@ -31,13 +31,9 @@
     $listeTypePatho = $pathologieDao->listeTypePatho();
     $smarty->assign('listeTypePatho', $listeTypePatho);
     
-   
-    
-    
-    if(isset($recherche) && $recherche != '') {
+    if(isset($recherche) && $recherche != '')
         $listePatho = $pathologieDao->recherche($recherche);
-    } else {
+    else
         $listePatho = $pathologieDao->listePatho($nomMeridien, $type);
-    }
 
     $smarty->assign('listePatho', $listePatho);
