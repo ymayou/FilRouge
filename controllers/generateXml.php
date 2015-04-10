@@ -2,28 +2,25 @@
     require_once 'core/DAO/PathologieDao.php';
 
     $dom = new DOMDocument('1.0', 'UTF-8');
-
+    $doctype = '<!DOCTYPE listPathos SYSTEM "listPathos.dtd">';
     $racine = $dom->createElement("listPathos");
     $racine = $dom->appendChild($racine);
 
     $cnx = null;
     $pathologieDao = new PathologieDao($cnx);
     $pathos = $pathologieDao->getPathos();
+    print_r($pathos);
     foreach($pathos as $patho)
     {
-        /*echo $patho["type"]."<br>";
-        echo $patho["desc1"]."<br>";
-        echo $patho["nom"]."<br>";
-        echo $patho["element"]."<br>";
-        echo $patho["desc2"]."<br>";*/
         $fils = $dom->createElement("pathologie");
+        $idPatho = $dom->createAttribute("id");
+        $idPatho->value = $patho["idP"];
+        $fils->appendChild($idPatho);
         $fils = $racine->appendChild($fils);
-        $fils->appendChild($dom->createElement('meridien',$patho["type"]));
-        $fils->appendChild($dom->createElement('symptome',$patho["desc1"]));
-        $fils->appendChild($dom->createElement('type',$patho["nom"]));
-        $fils->appendChild($dom->createElement('desc','title of song2.mp3'));
+        $fils->appendChild($dom->createElement('meridien',$patho["nom"]));
+        $fils->appendChild($dom->createElement('meridienElem',$patho["element"]));
+        $fils->appendChild($dom->createElement('typePatho',$patho["type"]));
+        $fils->appendChild($dom->createElement('descPatho',$patho["desc1"]));
+        $fils->appendChild($dom->createElement('descSympt',$patho["desc2"]));
     }
-
-
-
-    $dom->save("pathos.xml");
+    $doctype.$dom->save("web/ressources/pathos.xml");
