@@ -17,7 +17,7 @@ class Connexion extends PDO {
     public static function getInstance(){
         if(!isset(self::$_instance)){
             try{
-                self::$_instance =  $bdd = new PDO("mysql:host=localhost;dbname=acu", "florian", "florian", array( PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
+                self::$_instance =  $bdd = new PDO("mysql:host=localhost;dbname=acu", "root", "", array( PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
             } catch (Exception $ex) {
                 echo "$ex";
                 die('SQL error in class Connexion');
