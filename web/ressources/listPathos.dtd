@@ -1,9 +1,8 @@
+<!ELEMENT meridien (#PCDATA)>
+<!ELEMENT meridienElem (#PCDATA)>
+<!ELEMENT typePatho (#PCDATA)>
+<!ELEMENT descPatho (#PCDATA)>
+<!ELEMENT descSympt (#PCDATA)>
+<!ELEMENT pathologie ((meridien)?, (meridienElem)?, (typePatho)?, (descPatho)?, (descSympt)?)>
 <!ELEMENT listPathos (pathologie)*>
-<!ELEMENT pathologie (meridien | meridienElem | typePatho| descPatho | descSympt)*>
-<!ELEMENT meridien ((PCDATA)*)>
-<!ELEMENT meridienElem ((PCDATA)*)>
-<!ELEMENT typePatho ((PCDATA)*)>
-<!ELEMENT descPatho ((PCDATA)*)>
-<!ELEMENT descSympt ((PCDATA)*)>
-<!ATTLIST pathologie
-        id  ID #REQUIRED>
+<!ATTLIST pathologie id CDATA #REQUIRED>
