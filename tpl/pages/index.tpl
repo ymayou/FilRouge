@@ -1,10 +1,10 @@
 <div class="content">
     <a href="rss">
-        <img src="http://www.wpclipart.com/computer/software/.cache/RSS_icon_large.png">
+        <img src="http://www.wpclipart.com/computer/software/.cache/RSS_icon_large.png" alt="rss">
     </a>
     <h1>Accueil</h1>
     {if !isset($user)}
-        <form action="" method="POST" id="form-index">
+        <form action="#" method="POST" id="form-index">
             <fieldset>
                 <legend>Se connecter</legend>
                 <p class="errorLogin">{$error}</p>
