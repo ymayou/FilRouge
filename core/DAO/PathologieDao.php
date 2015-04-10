@@ -15,7 +15,7 @@ class PathologieDao extends GenericDao {
     }
     
     public function listePatho($nomMeridien, $type) {
-        $sql = "SELECT * FROM ".$this->tableName ." WHERE 1=1 ";
+        $sql = "SELECT p.idP, p.desc FROM ".$this->tableName ." p";
         if($nomMeridien != '') {
             $sql .= " AND `mer` IN (SELECT code from meridien WHERE nom='". $nomMeridien ."') ";
         }
@@ -50,8 +50,9 @@ class PathologieDao extends GenericDao {
                 ."join symptPatho sp on sp.idP = p.idP "
                 ."join keySympt ks on ks.idS = sp.idS "
                 ."join keywords k on k.idK = ks.idK "
-                ."WHERE k.name like '%".$mot."%'";
+                ."WHERE k.name like '%:mot%'";
         $requete = $this->connexion->prepare($sql);
+        $requete->bindValue(':mot', $mot);
         if($requete->execute()){
             while($donnees = $requete->fetchAll()){
                 return $donnees;
@@ -63,7 +64,7 @@ class PathologieDao extends GenericDao {
 
     public function getPathos()
     {
-        $sql = "SELECT p.type, p.desc as desc1, m.nom, m.element, s.desc as desc2 "
+        $sql = "SELECT p.idP, p.type, p.desc as desc1, m.nom, m.element, s.desc as desc2 "
                 ."FROM patho p "
                 ."join meridien m on m.code = p.mer "
                 ."join symptPatho sp on p.idP = sp.idP "
@@ -76,5 +77,49 @@ class PathologieDao extends GenericDao {
         } else {
             return null;
         }
+    }
+
+    public function getInfosPatho($id)
+    {
+        $result = "";
+        $sql = "SELECT m.desc "
+            ."FROM meridien m "
+            ."WHERE p.idP = :id";
+        $requete = $this->connexion->prepare($sql);
+        $requete->bindValue(':id', $id);
+        if($requete->execute()){
+            $res = $requete->fetch();
+            $result["meridien"] = $res["nom"];
+        } else {
+            return null;
+        }
+        $sql = "SELECT m.nom "
+            ."FROM meridien m "
+            ."join patho p on m.code = p.mer "
+            ."WHERE p.idP = :id";
+        $requete = $this->connexion->prepare($sql);
+        $requete->bindValue(':id', $id);
+        if($requete->execute()){
+            $res = $requete->fetch();
+            $result["meridien"] = $res["nom"];
+        } else {
+            return null;
+        }
+
+        $sql = "SELECT s.desc "
+                ."FROM symptome s "
+                ."JOIN symptPatho sp ON s.idS = sp.idS "
+                ."JOIN patho p ON p.idP = sp.idP "
+                ."WHERE p.idP = :id";
+        $requete = $this->connexion->prepare($sql);
+        if($requete->execute()){
+            while($donnees = $requete->fetchAll()){
+                return $donnees;
+            }
+        } else {
+            return null;
+        }
+
+        return $result;
     }
 }
