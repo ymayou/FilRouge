@@ -7,6 +7,11 @@ $(document).ready(function(){
             done = 1;
         }
     });
-    if (done == 0)
-        $("li:first").addClass("active");
+    if (done == 0) {
+        if (url.indexOf("/patho/") != -1)
+            $("nav li").eq(2).addClass("active");
+        else
+            $("li:first").addClass("active");
+    }
+
 });

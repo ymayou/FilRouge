@@ -8,24 +8,10 @@
         </p>
     </form>
     {if isset($resultat)}
-    <table class="table-green" title="Categorie maladie">
-        <thead>
-        <tr>
-            <th>Méridien</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-        </thead>
-        <tbody>
-        {foreach from=$resultat item=pathologie}
-            <tr>
-                <td>{$pathologie['mer']}</td>
-                <td>{$pathologie['type']}</td>
-                <td>{$pathologie['desc']}</td>
-            </tr>
-
-        {/foreach}
-        </tbody>
-    </table>
+        <div class="listePathos">
+            {foreach from=$resultat item=pathologie}
+                <a href="/patho/{$pathologie['idP']}" class="linkPatho">{$pathologie['desc']}</a>
+            {/foreach}
+        </div>
     {/if}
 </div>

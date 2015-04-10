@@ -7,12 +7,11 @@
     $nomMeridien = (isset($_POST['nomMeridien'])) ? $_POST['nomMeridien'] : '';
     $recherche   = (isset($_POST['recherche'])) ? $_POST['recherche'] : '';
     $type = $typePatho.$element;
-    //echo 'element : '. $element. '       type : '. $typePatho;
     
     if (isset($_SESSION["nom"]))
         $smarty->assign("user", $_SESSION["nom"]);
     
-     $smarty->assign('caracCourant', $element);
+    $smarty->assign('caracCourant', $element);
     $smarty->assign('typeCourant', $typePatho);
     $smarty->assign('nomCourant', $nomMeridien);
     
@@ -40,6 +39,5 @@
     } else {
         $listePatho = $pathologieDao->listePatho($nomMeridien, $type);
     }
-    
-    //print_r($pathologieDao);
+
     $smarty->assign('listePatho', $listePatho);

@@ -39,27 +39,14 @@
                     <option value="e" {if $caracCourant == "e"} selected="" {/if}>Externe</option>
                 </select>
             <p>
-                <button type="submit">Filtrer !</button>
+                <button type="submit">Filtrer</button>
             </p>
 
-        </fieldset></form>
-    <table class="table-green" title="Categorie maladie">
-        <thead>
-        <tr>
-            <th>Méridien</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-        </thead>
-        <tbody>
-            {foreach from=$listePatho item=pathologie}
-                <tr>
-                    <td>{$pathologie['mer']}</td>
-                    <td>{$pathologie['type']}</td>
-                    <td>{$pathologie['desc']}</td>
-                </tr>
-               
-            {/foreach}
-        </tbody>
-    </table>
+        </fieldset>
+    </form>
+    <div class="listePathos">
+        {foreach from=$listePatho item=pathologie}
+            <a href="/patho/{$pathologie['idP']}" class="linkPatho">{$pathologie['desc']}</a>
+        {/foreach}
+    </div>
 </div>

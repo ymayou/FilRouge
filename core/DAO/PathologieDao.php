@@ -50,9 +50,9 @@ class PathologieDao extends GenericDao {
                 ."join symptPatho sp on sp.idP = p.idP "
                 ."join keySympt ks on ks.idS = sp.idS "
                 ."join keywords k on k.idK = ks.idK "
-                ."WHERE k.name like '%:mot%'";
+                ."WHERE k.name like :mot";
         $requete = $this->connexion->prepare($sql);
-        $requete->bindValue(':mot', $mot);
+        $requete->bindValue(':mot', '%'.$mot.'%');
         if($requete->execute()){
             while($donnees = $requete->fetchAll()){
                 return $donnees;
@@ -82,36 +82,32 @@ class PathologieDao extends GenericDao {
     public function getInfosPatho($id)
     {
         $result = "";
-        $sql = "SELECT m.desc "
-            ."FROM meridien m "
-            ."WHERE p.idP = :id";
+        $sql = "SELECT p.desc, m.nom "
+            . "FROM patho p "
+            . "JOIN meridien m ON m.code = p.mer "
+            . "WHERE p.idP = :id";
         $requete = $this->connexion->prepare($sql);
         $requete->bindValue(':id', $id);
-        if($requete->execute()){
+        if ($requete->execute()) {
             $res = $requete->fetch();
+            $result["patho"] = ucfirst($res["desc"]);
             $result["meridien"] = $res["nom"];
         } else {
-            return null;
+            $result["patho"] = "";
+            $result["meridien"] = "";
         }
-        $sql = "SELECT m.nom "
-            ."FROM meridien m "
-            ."join patho p on m.code = p.mer "
-            ."WHERE p.idP = :id";
-        $requete = $this->connexion->prepare($sql);
-        $requete->bindValue(':id', $id);
-        if($requete->execute()){
-            $res = $requete->fetch();
-            $result["meridien"] = $res["nom"];
-        } else {
-            return null;
-        }
+        return $result;
+    }
 
+    public function getInfosSympt($id)
+    {
         $sql = "SELECT s.desc "
                 ."FROM symptome s "
                 ."JOIN symptPatho sp ON s.idS = sp.idS "
                 ."JOIN patho p ON p.idP = sp.idP "
                 ."WHERE p.idP = :id";
         $requete = $this->connexion->prepare($sql);
+        $requete->bindValue(':id', $id);
         if($requete->execute()){
             while($donnees = $requete->fetchAll()){
                 return $donnees;
@@ -119,7 +115,5 @@ class PathologieDao extends GenericDao {
         } else {
             return null;
         }
-
-        return $result;
     }
 }
